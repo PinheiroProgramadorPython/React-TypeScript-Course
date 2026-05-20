@@ -2,6 +2,7 @@ import { useState, type SubmitEvent } from "react";
 // import { useOutletContext } from "react-router-dom";
 // import type { Props } from "../interfaces/user";
 import { useFuel } from "../hooks/useFuel";
+import combustivel from "../assets/combustivel.png"
 
 export function FormFuel() {
     const [inputA, setInputA] = useState<number | "">("");
@@ -43,7 +44,7 @@ export function FormFuel() {
         <section className="flex flex-col items-center justify-center gap-2">
             <div>
                 <img
-                    src="./public/combustivel.png"
+                    src={combustivel}
                     alt="logo combustivel"
                     className="cursor-pointer hover:scale-110 transition-transform animate-bounce"
                 />
