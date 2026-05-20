@@ -59,10 +59,15 @@ export interface Props {
     setFuel: Dispatch<SetStateAction<CardFuel>>;
 }
 
+export interface Header {
+    accept: string;
+    Authorization?: string;
+    [chave: string]: string | undefined;
+}
+
 export interface UrlProps {
     url: string;
-    accept?: string;
-    Authorization?: string;
+    headers: Header;
 }
 
 export interface Coin {

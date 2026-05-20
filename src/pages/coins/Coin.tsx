@@ -24,13 +24,17 @@ export function Coin() {
 
     const req: UrlProps = {
         url: `https://rest.coincap.io/v3/assets`,
-        accept: `application/json`,
-        Authorization: `Bearer d329710a9b227379d797095749cecdcddcc3eeec405c166e73a92fcffc643235`,
+        headers: {
+            accept: `application/json`,
+            Authorization: `Bearer d329710a9b227379d797095749cecdcddcc3eeec405c166e73a92fcffc643235`,
+        }
     };
 
     async function getCoins() {
         try {
-            const reponse = await axios.get(req.url, req);
+            const reponse = await axios.get(req.url, {
+                headers: req.headers
+            });
             console.log(reponse.data.data);
             setCoins(
                 reponse.data.data.map((coin: Coin) => {
