@@ -43,7 +43,7 @@ export function FormFuel() {
         <section className="flex flex-col items-center justify-center gap-2">
             <div>
                 <img
-                    src="./src/assets/combustivel.png"
+                    src="./public/combustivel.png"
                     alt="logo combustivel"
                     className="cursor-pointer hover:scale-110 transition-transform animate-bounce"
                 />
