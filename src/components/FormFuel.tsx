@@ -31,6 +31,8 @@ export function FormFuel() {
                 alcool: formatarMoeda(Number(inputA)),
             });
         }
+        setInputA("");
+        setInputG("");
     };
 
     function formatarMoeda(valor: number) {
