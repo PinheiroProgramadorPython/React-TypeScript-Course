@@ -5,15 +5,15 @@ import { useFuel } from "../hooks/useFuel";
 import combustivel from "../assets/combustivel.png"
 
 export function FormFuel() {
-    const [inputA, setInputA] = useState<number | "">("");
-    const [inputG, setInputG] = useState<number | "">("");
+    const [inputA, setInputA] = useState<string>("");
+    const [inputG, setInputG] = useState<string>("");
 
     // const {fuel, setFuel} = useOutletContext<Props>();
     const { fuel, setFuel } = useFuel();
 
     const calcular = (e: SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (inputA == "" || inputG == "") {
+        if (inputA === "" || inputG === "") {
             localStorage.removeItem("Fuel");
             return alert("Preencha os Dados para fazer o Cálculo");
         }
@@ -21,14 +21,14 @@ export function FormFuel() {
         if (calc <= 0.7) {
             setFuel({
                 title: "Compensa Usar Álcool",
-                gasolina: formatarMoeda(inputG),
-                alcool: formatarMoeda(inputA),
+                gasolina: formatarMoeda(Number(inputG)),
+                alcool: formatarMoeda(Number(inputA)),
             });
         } else {
             setFuel({
                 title: "Compensa Usar Gasolina",
-                gasolina: formatarMoeda(inputG!),
-                alcool: formatarMoeda(inputA!),
+                gasolina: formatarMoeda(Number(inputG)),
+                alcool: formatarMoeda(Number(inputA)),
             });
         }
     };
@@ -56,7 +56,7 @@ export function FormFuel() {
                 </label>
                 <input
                     value={inputA}
-                    onChange={(e) => setInputA(Number(e.target.value))}
+                    onChange={(e) => setInputA(e.target.value)}
                     type="number"
                     placeholder="4.90"
                     className="border-blue-800 border-2 rounded-md p-1 bg-white"
@@ -66,7 +66,7 @@ export function FormFuel() {
                 </label>
                 <input
                     value={inputG}
-                    onChange={(e) => setInputG(Number(e.target.value))}
+                    onChange={(e) => setInputG(e.target.value)}
                     type="number"
                     placeholder="6.90"
                     className="border-blue-800 border-2 rounded-md p-1 bg-white"
